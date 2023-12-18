@@ -6,7 +6,7 @@ import main.Vector2D;
 import main.entities.Enemy;
 import main.utils.GameSettings;
 
-public class Enemy3 extends Enemy{
+public class Enemy3 extends Enemy {
 
     public Enemy3() {
         super();
@@ -22,6 +22,7 @@ public class Enemy3 extends Enemy{
     @Override
     public void draw(Graphics2D g) {
         g.setColor(Color.decode("#FF0000"));
-        g.fill(bounds(GameSettings.scaledTileSize));
+        // g.fill(bounds(GameSettings.scaledTileSize));
+        g.drawString("Statistika", (int) position.x, (int) position.y);
     }
 }
