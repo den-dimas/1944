@@ -7,8 +7,8 @@ import main.utils.GameSettings;
 import java.awt.*;
 
 public class Enemy extends Body2D {
-    int size = GameSettings.scaledTileSize;
-    int speed = 2;
+    public int size = GameSettings.scaledTileSize;
+    public int speed = 2;
 
     public Enemy() {
         position.x = 0;

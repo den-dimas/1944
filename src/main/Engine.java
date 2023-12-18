@@ -1,6 +1,9 @@
 package main;
 
 import main.entities.*;
+import main.entities.Varians.Enemy1;
+import main.entities.Varians.Enemy2;
+import main.entities.Varians.Enemy3;
 import main.utils.GameSettings;
 import main.utils.KeyHandler;
 
@@ -8,6 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Engine extends JPanel implements Runnable {
     public static Engine engine;
@@ -69,11 +73,30 @@ public class Engine extends JPanel implements Runnable {
 
         if (enemyInterval >= enemyRate) {
             Enemy enemy = new Enemy();
+            Enemy1 enemy1 = new Enemy1();
+            Enemy2 enemy2 = new Enemy2();
+            Enemy3 enemy3 = new Enemy3();
 
             enemy.position.x = enemyXDir == 1 ? Math.random() * -10 : Math.random() * 10 + GameSettings.screenDimension.width;
             enemy.position.y = enemyYDir == 1 ? Math.random() * -10 : Math.random() * 10 + GameSettings.screenDimension.height;
 
-            enemies.add(enemy);
+            Random random = new Random();
+            int enemyType = random.nextInt(4);
+
+            switch (enemyType) {
+                case 0:
+                    enemies.add(enemy);
+                    break;
+                case 1:
+                    enemies.add(enemy1);
+                    break;
+                case 2:
+                    enemies.add(enemy2);
+                    break;
+                case 3:
+                    enemies.add(enemy3);
+                    break;
+            }
 
             enemyXDir *= -1;
             enemyYDir *= -1;
@@ -82,6 +105,18 @@ public class Engine extends JPanel implements Runnable {
 
         for (Enemy e : enemies) {
             e.move();
+
+            if(e.health <= 0){
+                player.updateScore(10);
+                enemies.remove(e);
+                break;
+            }
+
+            if (e.bounds(e.size).intersects(player.bounds(player.size))) {
+                player.health -= 10;
+                enemies.remove(e);
+                break;
+            }
         }
 
         player.fire(delta);
@@ -97,6 +132,11 @@ public class Engine extends JPanel implements Runnable {
         }
 
         player.draw(g);
+
+        g.setColor(Color.WHITE);
+        g.drawString("Score: " + player.getScore(), 10, 20);
+
+        g.drawString("Health: " + player.health, 10, 40);
 
         g.dispose();
     }

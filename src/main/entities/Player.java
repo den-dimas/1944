@@ -15,6 +15,7 @@ public class Player extends Body2D {
     KeyHandler keyHandler;
     public static Player player;
     public int size = GameSettings.scaledTileSize;
+    private int score = 0;
 
     List<Bullet> bullets = new ArrayList<>();
     BulletSpawner bulletSpawner = new BulletSpawner();
@@ -140,5 +141,13 @@ public class Player extends Body2D {
             return new Vector2D(dx / mag, dy / mag);
 
         return new Vector2D(0, 0);
+    }
+
+    public int getScore(){
+        return score;
+    }
+
+    public void updateScore(int points){
+        score += points;
     }
 }
