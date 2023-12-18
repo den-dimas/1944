@@ -5,10 +5,12 @@ import java.awt.*;
 import main.entities.Enemy;
 import main.utils.GameSettings;
 
-public class Enemy1 extends Enemy{
+public class RangkaianListrik extends Enemy{
 
-    public Enemy1() {
+    public RangkaianListrik() {
         super();
+        health = 200;
+        speed = 1;
     }
 
     @Override
@@ -19,6 +21,6 @@ public class Enemy1 extends Enemy{
     @Override
     public void draw(Graphics2D g) {
         g.setColor(Color.decode("#80ad32"));
-        g.fill(bounds(GameSettings.scaledTileSize));
+        g.drawString("Rangkaian Listrik", (int) position.x, (int) position.y);
     }
 }

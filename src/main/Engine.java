@@ -1,9 +1,10 @@
 package main;
 
 import main.entities.*;
-import main.entities.Varians.Enemy1;
-import main.entities.Varians.Enemy2;
-import main.entities.Varians.Enemy3;
+import main.entities.Varians.DRE;
+import main.entities.Varians.RangkaianListrik;
+import main.entities.Varians.Strukdis;
+import main.entities.Varians.Statistika;
 import main.utils.GameSettings;
 import main.utils.KeyHandler;
 
@@ -72,20 +73,20 @@ public class Engine extends JPanel implements Runnable {
         enemyInterval += delta;
 
         if (enemyInterval >= enemyRate) {
-            Enemy enemy = new Enemy();
-            Enemy1 enemy1 = new Enemy1();
-            Enemy2 enemy2 = new Enemy2();
-            Enemy3 enemy3 = new Enemy3();
+            DRE dre = new DRE();
+            RangkaianListrik enemy1 = new RangkaianListrik();
+            Strukdis enemy2 = new Strukdis();
+            Statistika enemy3 = new Statistika();
 
-            enemy.position.x = enemyXDir == 1 ? Math.random() * -10 : Math.random() * 10 + GameSettings.screenDimension.width;
-            enemy.position.y = enemyYDir == 1 ? Math.random() * -10 : Math.random() * 10 + GameSettings.screenDimension.height;
+            // enemy.position.x = enemyXDir == 1 ? Math.random() * -10 : Math.random() * 10 + GameSettings.screenDimension.width;
+            // enemy.position.y = enemyYDir == 1 ? Math.random() * -10 : Math.random() * 10 + GameSettings.screenDimension.height;
 
             Random random = new Random();
             int enemyType = random.nextInt(4);
 
             switch (enemyType) {
                 case 0:
-                    enemies.add(enemy);
+                    enemies.add(dre);
                     break;
                 case 1:
                     enemies.add(enemy1);
@@ -114,6 +115,7 @@ public class Engine extends JPanel implements Runnable {
 
             if (e.bounds(e.size).intersects(player.bounds(player.size))) {
                 player.health -= 10;
+                whenDie();
                 enemies.remove(e);
                 break;
             }
@@ -139,5 +141,12 @@ public class Engine extends JPanel implements Runnable {
         g.drawString("Health: " + player.health, 10, 40);
 
         g.dispose();
+    }
+
+    public void whenDie(){
+        if(player.health <= 0){
+            JOptionPane.showMessageDialog(null, "Game Over");
+            System.exit(0);
+        }
     }
 }

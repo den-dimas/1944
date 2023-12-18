@@ -5,9 +5,9 @@ import java.awt.*;
 import main.entities.Enemy;
 import main.utils.GameSettings;
 
-public class Enemy2 extends Enemy{
+public class Strukdis extends Enemy{
 
-    public Enemy2() {
+    public Strukdis() {
         super();
         speed = 3;
         health = 150;
@@ -21,6 +21,6 @@ public class Enemy2 extends Enemy{
     @Override
     public void draw(Graphics2D g) {
         g.setColor(Color.decode("#2347dd"));
-        g.fill(bounds(GameSettings.scaledTileSize));
+        g.drawString("Strukdis", (int) position.x, (int) position.y);
     }
 }
