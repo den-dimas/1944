@@ -2,15 +2,16 @@ package main.entities.Varians;
 
 import java.awt.*;
 
+import main.Vector2D;
 import main.entities.Enemy;
 import main.utils.GameSettings;
 
-public class DRE extends Enemy{
+public class Enemy3 extends Enemy {
 
-    public DRE() {
+    public Enemy3() {
         super();
-        health = 300;
-        speed = 1;
+        health = 50;
+        speed = 6;
     }
 
     @Override
@@ -20,7 +21,7 @@ public class DRE extends Enemy{
 
     @Override
     public void draw(Graphics2D g) {
-        g.setColor(Color.decode("#38dd98"));
-        g.drawString("Dasar Rangkaian Elektronika", (int) position.x, (int) position.y);
+        g.setColor(Color.decode("#FF0000"));
+        g.drawString("Statistika", (int) position.x, (int) position.y);
     }
 }

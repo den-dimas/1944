@@ -1,10 +1,10 @@
 package main;
 
 import main.entities.*;
-import main.entities.Varians.DRE;
-import main.entities.Varians.RangkaianListrik;
-import main.entities.Varians.Strukdis;
-import main.entities.Varians.Statistika;
+import main.entities.Varians.Enemy1;
+import main.entities.Varians.Enemy2;
+import main.entities.Varians.Enemy4;
+import main.entities.Varians.Enemy3;
 import main.utils.GameSettings;
 import main.utils.KeyHandler;
 
@@ -73,10 +73,10 @@ public class Engine extends JPanel implements Runnable {
         enemyInterval += delta;
 
         if (enemyInterval >= enemyRate) {
-            DRE dre = new DRE();
-            RangkaianListrik enemy1 = new RangkaianListrik();
-            Strukdis enemy2 = new Strukdis();
-            Statistika enemy3 = new Statistika();
+            Enemy1 enemy1 = new Enemy1();
+            Enemy2 enemy2 = new Enemy2();
+            Enemy4 enemy3 = new Enemy4();
+            Enemy3 enemy4 = new Enemy3();
 
             // enemy.position.x = enemyXDir == 1 ? Math.random() * -10 : Math.random() * 10 + GameSettings.screenDimension.width;
             // enemy.position.y = enemyYDir == 1 ? Math.random() * -10 : Math.random() * 10 + GameSettings.screenDimension.height;
@@ -86,7 +86,7 @@ public class Engine extends JPanel implements Runnable {
 
             switch (enemyType) {
                 case 0:
-                    enemies.add(dre);
+                    enemies.add(enemy4);
                     break;
                 case 1:
                     enemies.add(enemy1);

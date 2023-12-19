@@ -5,9 +5,9 @@ import java.awt.*;
 import main.entities.Enemy;
 import main.utils.GameSettings;
 
-public class RangkaianListrik extends Enemy{
+public class Enemy2 extends Enemy{
 
-    public RangkaianListrik() {
+    public Enemy2() {
         super();
         health = 200;
         speed = 1;
