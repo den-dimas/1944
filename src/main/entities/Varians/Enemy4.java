@@ -5,12 +5,12 @@ import java.awt.*;
 import main.entities.Enemy;
 import main.utils.GameSettings;
 
-public class Enemy1 extends Enemy{
+public class Enemy4 extends Enemy{
 
-    public Enemy1() {
+    public Enemy4() {
         super();
-        health = 300;
-        speed = 1;
+        speed = 3;
+        health = 150;
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Enemy1 extends Enemy{
 
     @Override
     public void draw(Graphics2D g) {
-        g.setColor(Color.decode("#38dd98"));
-        g.drawString("Dasar Rangkaian Elektronika", (int) position.x, (int) position.y);
+        g.setColor(Color.decode("#2347dd"));
+        g.drawString("Strukdis", (int) position.x, (int) position.y);
     }
 }

@@ -9,8 +9,8 @@ public class Enemy2 extends Enemy{
 
     public Enemy2() {
         super();
-        speed = 3;
-        health = 150;
+        health = 200;
+        speed = 1;
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Enemy2 extends Enemy{
 
     @Override
     public void draw(Graphics2D g) {
-        g.setColor(Color.decode("#2347dd"));
-        g.fill(bounds(GameSettings.scaledTileSize));
+        g.setColor(Color.decode("#80ad32"));
+        g.drawString("Rangkaian Listrik", (int) position.x, (int) position.y);
     }
 }
