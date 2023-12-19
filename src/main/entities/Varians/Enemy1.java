@@ -21,6 +21,6 @@ public class Enemy1 extends Enemy{
     @Override
     public void draw(Graphics2D g) {
         g.setColor(Color.decode("#38dd98"));
-        g.drawString("Dasar Rangkaian Elektronika", (int) position.x, (int) position.y);
+        g.draw(bounds(10));
     }
 }
